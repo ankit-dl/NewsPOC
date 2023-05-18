@@ -68,6 +68,15 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
             tvSource.text = article.source?.name
             tvTitle.text = article.title
             tvDescription.text = article.description
+            ivArticleImage.setOnClickListener {
+                val bundle = Bundle().apply {
+                    putSerializable("news", article)
+                }
+                findNavController().navigate(
+                    R.id.action_homeFragment_to_detailFragment,
+                    bundle
+                )
+            }
         }
     }
 
